@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()">
-  <div class="innput-group">
+  <div class="input-group">
     <p>
       <label for="initial-investment">Initial Investment</label>
       <input
@@ -18,6 +18,8 @@
         [(ngModel)]="enteredAnnualInvestment"
       />
     </p>
+  </div>
+  <div class="input-group">
     <p>
       <label for="expected-return">Expected Return</label>
       <input
@@ -38,6 +40,7 @@
       />
     </p>
   </div>
+
   <p>
     <button type="submit">Calculate</button>
   </p>
