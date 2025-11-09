@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { InvestmentService } from '../investment.service';
 
 @Component({
@@ -11,10 +11,9 @@ import { InvestmentService } from '../investment.service';
 })
 export class InvestmentResultsComponent {
   investmentServicee = inject(InvestmentService);
-
   // results = this.investmentServicee.resultsData; ERR
 
-  get results() {
-    return this.investmentServicee.resultsData;
-  }
+  results = computed(() => this.investmentServicee.resultsData()); // computed per evitare di manipolare dati del signal i quali sono gestiti esclusivamente dal servizio (computed rende il segnale readOnly);
+  // alternativa metodo computed
+  // retults = this.investmentServicee.resultsData.asReadonly();
 }
